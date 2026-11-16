@@ -1,4 +1,23 @@
-# Faro — Documentação
+# 🎯 Faro: Server-Side Data Quality & Tracking Validation Framework
+
+> **Nota de Confidencialidade:** Este repositório apresenta a arquitetura e a documentação conceitual de um framework corporativo de Data Quality. Dados sensíveis, regras de negócio proprietárias e credenciais foram omitidos em conformidade com NDAs. As capturas de tela mencionadas foram anonimizadas.
+
+## 🚀 O Desafio (Business Case)
+Em ecossistemas de e-commerce escaláveis (Web e Mobile), garantir a qualidade e a integridade de eventos analíticos é altamente complexo. Falhas na captura de dados (`dataLayer` ou SDKs Mobile) geram inconsistências que poluem o Data Warehouse (BigQuery/GCP) de forma irreversível. Auditorias manuais são reativas, lentas e ineficientes.
+
+## 💡 A Solução (O Mecanismo)
+O Faro foi projetado como um gateway robusto de qualidade de dados. Ele aplica conceitos de **Shift-Left Testing**, identificando anomalias na estrutura e integridade dos eventos (Schema Enforcement) exatamente no momento em que são disparados nas aplicações clientes, cobrindo ambientes **Web** e **Mobile**.
+
+## 🤖 Abordagem "AI Builder" (Como foi construído)
+O desenvolvimento desta solução foi acelerado aplicando intensamente o conceito de **Vibe Coding** e orquestração de agentes de IA de ponta a ponta:
+
+* **Orquestração com Claude Code:** Utilização do agente autônomo Claude Code atuando diretamente na base de código para refatorar fluxos assíncronos do backend em Node.js e acelerar a lógica de interceptação e a ponte ADB ↔ Server.
+* **Frontend Escalável com IA (Skill "Impecable"):** O dashboard de visualização de dados (desenvolvido em React + Vite) foi estruturado utilizando *Prompt Engineering avançado*. Apliquei metodologias de *Skills Superpowers*, especificamente a skill *Impecable*, para gerar componentes visuais limpos e funcionais com extrema agilidade.
+* **Geração de Automações:** Automação massiva na criação de rotinas de auditoria, delegando a construção de mapeamentos de DOM complexos para os LLMs.
+
+---
+
+## 🏗️ Documentação Técnica Detalhada
 
 Faro é uma ferramenta interna de validação de tracking multi-marca. Ele captura os
 eventos de analytics que realmente dispararam numa navegação real, compara com a
@@ -20,7 +39,7 @@ Cobre duas plataformas, com o mesmo conceito e pipelines diferentes:
 
 ---
 
-## 1. Ponto de entrada
+### 1. Ponto de entrada
 
 Ao abrir o Faro, a primeira escolha é a plataforma. As duas metades compartilham servidor,
 armazenamento e conceito de sessão, mas têm telas próprias.
@@ -31,7 +50,7 @@ Depois da plataforma, escolhe-se a marca. Toda a navegação seguinte é no cont
 
 ---
 
-## 2. Conceito central: a sessão
+### 2. Conceito central: a sessão
 
 Tudo no Faro gira em torno da **sessão** — o registro de uma navegação real, do início ao fim,
 com todos os eventos que dispararam no caminho.
@@ -49,9 +68,9 @@ permite que o histórico seja versionado e que o dashboard leia de qualquer luga
 
 ---
 
-## 3. Faro Web
+### 3. Faro Web
 
-### 3.1 Como a captura acontece
+#### 3.1 Como a captura acontece
 
 A extensão Chrome (MV3, em `extensao-v2/`) injeta dois scripts em toda página:
 
@@ -68,7 +87,7 @@ Ao parar a captura, a extensão envia a sessão para `POST /api/save-session`.
 A distinção entre "foi empurrado" e "realmente chegou" é o ponto mais importante do Faro Web:
 um evento pode estar no `dataLayer` e nunca virar hit de GA4 — e o contrário também acontece.
 
-### 3.2 O dashboard
+#### 3.2 O dashboard
 
 ![Dashboard do Faro Web](img/web-01-dashboard.png)
 
@@ -81,7 +100,7 @@ A navegação lateral tem:
 - **Instruções** — o passo a passo de instalação da extensão;
 - **Configurações / Marcas** — cadastro de marcas e domínio sGTM de cada uma.
 
-### 3.3 Lendo uma sessão
+#### 3.3 Lendo uma sessão
 
 Cada sessão abre em três abas:
 
@@ -97,9 +116,9 @@ capturado (comparando `dataLayer` e `GA4` capturado), aplicando regras específi
 
 ---
 
-## 4. Faro App
+### 4. Faro App
 
-### 4.1 Como a captura acontece
+#### 4.1 Como a captura acontece
 
 No App não existe extensão. A captura depende de três peças:
 
@@ -120,7 +139,7 @@ dashboard, sem ninguém precisar abrir o CMD.
 O painel mostra se o agente local está ativo, quais aparelhos estão conectados, e permite
 conectar por IP ou converter uma conexão USB em Wi-Fi.
 
-### 4.2 O dashboard do App
+#### 4.2 O dashboard do App
 
 ![Seleção de marca no Faro App](img/app-01-selecao-marca.jpg)
 
@@ -138,7 +157,7 @@ O detalhe de uma sessão traz:
 - os **parceiros detectados**;
 - a lista de eventos, com os problemas destacados.
 
-### 4.3 Validação no App
+#### 4.3 Validação no App
 
 ![Evento inválido com o payload correspondente](img/app-03-validacao-payload.png)
 
@@ -148,12 +167,12 @@ seguido do payload que o aparelho realmente emitiu.
 
 ---
 
-## 5. Área de Saúde
+### 5. Área de Saúde
 
 A Saúde responde a uma pergunta diferente da sessão. A sessão pergunta *"o que deu errado
 nesta navegação?"*; a Saúde pergunta *"quanto da especificação esta marca cumpre hoje?"*.
 
-### 5.1 Como o número sai
+#### 5.1 Como o número sai
 
 Cada par **evento × região** previsto no schema para aquela marca é um ponto de checagem.
 O score é a proporção de pontos de checagem que dispararam corretamente na **sessão de
@@ -179,7 +198,7 @@ disparar todos os eventos esperados e ainda assim ter parâmetros faltando.
 
 ---
 
-## 6. O schema
+### 6. O schema
 
 O schema é a especificação de referência — o que *deveria* acontecer. É contra ele que toda
 validação roda.
@@ -201,7 +220,7 @@ opcionais isenta.
 
 ---
 
-## 7. Estrutura do repositório
+### 7. Estrutura do repositório
 
 ```
 server.js                  API e regras de validação/saúde das duas plataformas
@@ -228,7 +247,7 @@ dashboard/                 interface do Faro Web (React + Vite)
 
 ---
 
-## 8. Operação
+### 8. Operação
 
 O Faro roda no **Cloud Run**. O deploy é feito pelo Cloud Shell: build da imagem a partir da
 raiz do repositório, push para o Artifact Registry e `gcloud run deploy`. O tráfego já
