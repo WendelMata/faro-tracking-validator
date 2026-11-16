@@ -1,257 +1,205 @@
-# 🎯 Faro: Server-Side Data Quality & Tracking Validation Framework
+# Faro — Server-Side Data Quality & Tracking Validation Framework
 
-> **Nota de Confidencialidade:** Este repositório apresenta a arquitetura e a documentação conceitual de um framework corporativo de Data Quality. Dados sensíveis, regras de negócio proprietárias e credenciais foram omitidos em conformidade com NDAs. As capturas de tela mencionadas foram anonimizadas.
-
-## 🚀 O Desafio (Business Case)
-Em ecossistemas de e-commerce escaláveis (Web e Mobile), garantir a qualidade e a integridade de eventos analíticos é altamente complexo. Falhas na captura de dados (`dataLayer` ou SDKs Mobile) geram inconsistências que poluem o Data Warehouse (BigQuery/GCP) de forma irreversível. Auditorias manuais são reativas, lentas e ineficientes.
-
-## 💡 A Solução (O Mecanismo)
-O Faro foi projetado como um gateway robusto de qualidade de dados. Ele aplica conceitos de **Shift-Left Testing**, identificando anomalias na estrutura e integridade dos eventos (Schema Enforcement) exatamente no momento em que são disparados nas aplicações clientes, cobrindo ambientes **Web** e **Mobile**.
-
-## 🤖 Abordagem "AI Builder" (Como foi construído)
-O desenvolvimento desta solução foi acelerado aplicando intensamente o conceito de **Vibe Coding** e orquestração de agentes de IA de ponta a ponta:
-
-* **Orquestração com Claude Code:** Utilização do agente autônomo Claude Code atuando diretamente na base de código para refatorar fluxos assíncronos do backend em Node.js e acelerar a lógica de interceptação e a ponte ADB ↔ Server.
-* **Frontend Escalável com IA (Skill "Impecable"):** O dashboard de visualização de dados (desenvolvido em React + Vite) foi estruturado utilizando *Prompt Engineering avançado*. Apliquei metodologias de *Skills Superpowers*, especificamente a skill *Impecable*, para gerar componentes visuais limpos e funcionais com extrema agilidade.
-* **Geração de Automações:** Automação massiva na criação de rotinas de auditoria, delegando a construção de mapeamentos de DOM complexos para os LLMs.
+> [!NOTE]
+> **Confidencialidade:** Este repositório apresenta a arquitetura, o código-fonte sanitizado e a documentação técnica de um framework corporativo de Data Quality. Dados sensíveis, regras de negócio proprietárias e credenciais foram omitidos em conformidade com NDAs. Todas as capturas de tela foram anonimizadas (`marca-a` a `marca-j`, identificadores e URLs genéricos).
 
 ---
 
-## 🏗️ Documentação Técnica Detalhada
+## Visão Executiva
 
-Faro é uma ferramenta interna de validação de tracking multi-marca. Ele captura os
-eventos de analytics que realmente dispararam numa navegação real, compara com a
-especificação de referência e mostra onde a implementação diverge.
+### O Desafio
+Em ecossistemas de e-commerce multi-marca (Web e Mobile), garantir a integridade e a conformidade dos eventos analíticos é crítico. Falhas na coleta (`dataLayer` ou SDKs Mobile) geram inconsistências que comprometem a confiabilidade do Data Warehouse (BigQuery/GCP) e das atribuições de mídia. Auditorias manuais são reativas, lentas e difíceis de escalar entre múltiplas frentes.
 
-Cobre duas plataformas, com o mesmo conceito e pipelines diferentes:
+### A Solução
+O **Faro** atua como um gateway de qualidade de dados orientado a **Shift-Left Testing**, identificando anomalias de estrutura, tipagem e obrigatoriedade de parâmetros (**Schema Enforcement**) no momento em que os eventos são disparados nas aplicações clientes — cobrindo **Web** e **Android** sob uma mesma plataforma.
 
-| | **Faro Web** | **Faro App** |
+### Arquitetura e Aceleração com IA
+O desenvolvimento do projeto combinou engenharia tradicional com fluxos de **AI-Assisted Engineering**:
+
+- **Backend e Pipeline de Captura:** Refatoração de fluxos assíncronos em Node.js, lógica de interceptação no navegador e integração ADB ↔ Servidor acelerados com **Claude Code**.
+- **Interface e Visualização de Dados:** Dashboard em React + Vite estruturado com engenharia de prompt avançada para geração de componentes limpos e responsivos.
+- **Automação de Auditoria:** Geração assistida de mapeamentos de eventos, normalizadores de payload e suítes de testes de validação.
+
+---
+
+## Arquitetura Geral
+
+O Faro cobre duas plataformas com pipelines distintos que convergem para um modelo único de sessão e validação:
+
+| Dimensão | Faro Web | Faro App (Android) |
 |---|---|---|
-| O que captura | `dataLayer` + hits de GA4 + pixels de parceiro | eventos Firebase/GA4 do app Android |
-| Como captura | extensão Chrome | agente local lendo o `logcat` via ADB |
-| Especificação | `schema.json` | `mobile/coverage-schema.json` |
-| Tela | `/` | `/mobile` |
-
-> **Sobre os prints deste documento:** todos foram tirados do ambiente real e depois
-> anonimizados — nomes de marca viraram `marca-a … marca-j`, e nomes de produto, preços,
-> URLs e identificadores foram substituídos por valores genéricos. O que você vê é a
-> interface de verdade; os dados não são.
+| **Fonte de captura** | `dataLayer` + hits GA4 + pixels de parceiros | Eventos Firebase / GA4 via `logcat` |
+| **Mecanismo** | Extensão Chrome (Manifest V3) | Agente local Node.js + ponte ADB |
+| **Especificação** | `schema.json` | `mobile/coverage-schema.json` |
+| **Interface** | `/` (React + Vite) | `/mobile` |
 
 ---
 
-### 1. Ponto de entrada
+## 1. Ponto de Entrada
 
-Ao abrir o Faro, a primeira escolha é a plataforma. As duas metades compartilham servidor,
-armazenamento e conceito de sessão, mas têm telas próprias.
+Ao acessar a aplicação, o usuário seleciona a plataforma de validação (**Web** ou **App**). Ambas compartilham o mesmo servidor, armazenamento de sessões e motor de saúde, mas operam com telas e fluxos dedicados.
 
 ![Tela inicial do Faro com a escolha entre Web e App](img/00-home-plataforma.jpg)
 
-Depois da plataforma, escolhe-se a marca. Toda a navegação seguinte é no contexto dela.
+Após a seleção da plataforma, escolhe-se a marca ativa. Toda a navegação subsequente ocorre dentro desse contexto.
 
 ---
 
-### 2. Conceito central: a sessão
+## 2. Modelo Central: A Sessão
 
-Tudo no Faro gira em torno da **sessão** — o registro de uma navegação real, do início ao fim,
-com todos os eventos que dispararam no caminho.
+Toda a operação do Faro gira em torno da **sessão** — o registro completo de uma navegação real, do início ao fim, com todos os eventos disparados no percurso.
 
-Uma sessão guarda:
+Cada sessão armazena:
 
-- **eventos de `dataLayer`** (Web) ou **eventos Firebase** (App), na ordem em que ocorreram;
-- **os hits de GA4** que efetivamente saíram do navegador/app;
-- **hits de parceiros** detectados (Meta, AppsFlyer, Insider, etc.);
-- **o resultado da validação** contra o schema;
-- metadados: marca, testador, data, pasta, ambiente.
+- **Eventos de origem:** `dataLayer` (Web) ou Firebase (App), em ordem cronológica;
+- **Hits de saída:** requisições GA4 efetivamente enviadas pelo navegador/app;
+- **Parceiros detectados:** pixels e SDKs de terceiros (Meta, AppsFlyer, Insider, etc.);
+- **Resultado da validação:** conformidade de cada evento e parâmetro frente ao schema;
+- **Metadados:** marca, responsável, data, pasta de organização e ambiente.
 
-Sessões ficam gravadas no repositório (via API do GitHub), não num banco. Isso é o que
-permite que o histórico seja versionado e que o dashboard leia de qualquer lugar.
+As sessões são persistidas de forma versionada via API do GitHub, dispensando banco de dados dedicado e permitindo consulta histórica centralizada.
 
 ---
 
-### 3. Faro Web
+## 3. Faro Web
 
-#### 3.1 Como a captura acontece
+### 3.1 Mecanismo de Captura
 
-A extensão Chrome (MV3, em `extensao-v2/`) injeta dois scripts em toda página:
+A extensão Chrome (Manifest V3, em `extensao-v2/`) injeta dois scripts em toda página:
 
-- **`injector.js`** roda no *mundo principal* da página, em `document_start` — antes de
-  qualquer script do site. Ele substitui `dataLayer.push` por uma versão que registra o
-  que passou, intercepta os hits de GA4 na saída e também escuta o *message bus* do
-  container do GTM. É por isso que o Faro sabe não só o que foi empurrado para o
-  `dataLayer`, mas o que a tag realmente enviou.
-- **`content.js`** roda isolado e serve de ponte: repassa o que o injector capturou para o
-  service worker da extensão (`background.js`), que acumula a sessão.
+- **`injector.js`:** executa no *main world* em `document_start`, antes dos scripts da aplicação. Sobrescreve `dataLayer.push` para registrar entradas, intercepta hits de saída do GA4 e escuta o *message bus* do container do GTM — distinguindo o que foi empurrado para o `dataLayer` do que a tag efetivamente transmitiu.
+- **`content.js`:** executa em contexto isolado como ponte entre a página e o service worker (`background.js`), que acumula a sessão.
 
-Ao parar a captura, a extensão envia a sessão para `POST /api/save-session`.
+Ao encerrar a gravação, a extensão envia a sessão para `POST /api/save-session`.
 
-A distinção entre "foi empurrado" e "realmente chegou" é o ponto mais importante do Faro Web:
-um evento pode estar no `dataLayer` e nunca virar hit de GA4 — e o contrário também acontece.
-
-#### 3.2 O dashboard
+### 3.2 Dashboard Web
 
 ![Dashboard do Faro Web](img/web-01-dashboard.png)
 
-A navegação lateral tem:
+A navegação lateral organiza os módulos da plataforma:
 
-- **Dashboard** — contadores e sessões recentes da marca ativa;
-- **Fluxos Gravados** — jornadas gravadas que podem ser reproduzidas automaticamente;
-- **Sessões de Extensão** — todas as sessões capturadas, organizáveis em pastas;
-- **Saúde** — o painel de cobertura (seção 5);
-- **Instruções** — o passo a passo de instalação da extensão;
-- **Configurações / Marcas** — cadastro de marcas e domínio sGTM de cada uma.
+- **Dashboard:** indicadores consolidados e sessões recentes da marca ativa;
+- **Fluxos Gravados:** jornadas reutilizáveis para reprodução automatizada;
+- **Sessões de Extensão:** histórico completo com organização por pastas;
+- **Saúde:** painel executivo de cobertura (Seção 5);
+- **Instruções:** guia de instalação e uso da extensão;
+- **Configurações / Marcas:** cadastro de marcas e domínios sGTM.
 
-#### 3.3 Lendo uma sessão
+### 3.3 Inspeção de Sessão
 
-Cada sessão abre em três abas:
+Cada sessão é exibida em três visões complementares:
 
-- **Resumo** — veredito geral, contagem de erros de schema, inconsistências e eventos que
-  não chegaram ao GA4;
-- **Detalhamento** — a comparação evento a evento;
-- **Parceiros** — os pixels de terceiros detectados.
+- **Resumo:** veredito geral, contagem de erros de schema, inconsistências e eventos sem hit correspondente no GA4;
+- **Detalhamento:** auditoria evento a evento;
+- **Parceiros:** pixels de terceiros detectados durante a navegação.
 
 ![Detalhamento de uma sessão: validação parâmetro a parâmetro e payload](img/web-02-detalhamento.png)
 
-O Detalhamento mostra a validação parâmetro a parâmetro e o payload completo de cada evento
-capturado (comparando `dataLayer` e `GA4` capturado), aplicando regras específicas por plataforma.
+O Detalhamento apresenta a validação parâmetro a parâmetro e o payload integral de cada evento capturado, aplicando regras condicionais específicas por plataforma.
 
 ---
 
-### 4. Faro App
+## 4. Faro App
 
-#### 4.1 Como a captura acontece
+### 4.1 Mecanismo de Captura
 
-No App não existe extensão. A captura depende de três peças:
+No ambiente Mobile, a captura é composta por três camadas:
 
-1. **O aparelho Android**, conectado por USB ou Wi-Fi, com o modo debug do Firebase ativo.
-2. **O agente local** (`mobile/faro-agente.js`), que roda na máquina do analista — sobe um
-   pequeno servidor em `localhost:3001` e fica esperando comandos.
-3. **O `adb-capture.js`**, que o agente dispara. Ele lê o `logcat` do aparelho e extrai os
-   eventos do Firebase das linhas de log (`FA: Logging event (FE): …` e
-   `FA-SVC … name=…,params=Bundle[{…}]`), faz o *parse* do Bundle e envia cada evento para
-   `POST /api/mobile/ingest/:sessionId`.
+1. **Dispositivo Android:** conectado via USB ou Wi-Fi, com o modo debug do Firebase habilitado.
+2. **Agente Local (`mobile/faro-agente.js`):** serviço executado na máquina do analista em `localhost:3001`, responsável por receber comandos da interface web.
+3. **Captura ADB (`mobile/adb-capture.js`):** processo disparado pelo agente que lê o `logcat` do aparelho, extrai eventos Firebase (`FA: Logging event (FE): …` e `FA-SVC … name=…,params=Bundle[{…}]`), realiza o *parse* do `Bundle` e envia cada evento para `POST /api/mobile/ingest/:sessionId`.
 
-O agente existe por um motivo específico: o servidor do Faro roda no Cloud Run e não tem
-acesso ao USB do analista. Com o agente no meio, o botão de iniciar/parar funciona pelo
-dashboard, sem ninguém precisar abrir o CMD.
+Essa arquitetura desacopla o servidor em Cloud Run da conexão física USB do analista, permitindo iniciar e encerrar capturas diretamente pelo navegador.
 
 ![Painel de Captura ADB](img/app-04-captura-adb.png)
 
-O painel mostra se o agente local está ativo, quais aparelhos estão conectados, e permite
-conectar por IP ou converter uma conexão USB em Wi-Fi.
+O painel exibe o status do agente local, lista dispositivos conectados e oferece conexão por IP ou conversão de USB para Wi-Fi.
 
-#### 4.2 O dashboard do App
+### 4.2 Dashboard do App
 
 ![Seleção de marca no Faro App](img/app-01-selecao-marca.jpg)
 
-As sessões ficam à esquerda, organizadas por pasta (Homologação, Produção, etc.) e
-filtráveis por status. Sessões em andamento aparecem como **Ao vivo** — o servidor
-transmite os eventos em tempo real por SSE enquanto a captura acontece.
+As sessões ficam listadas à esquerda, organizadas por ambiente/pasta (Homologação, Produção, etc.) com filtros por status. Capturas em andamento exibem o estado **Ao vivo**, recebendo eventos em tempo real via **Server-Sent Events (SSE)**.
 
 ![Detalhe de uma sessão de App](img/app-02-sessao-detalhe.jpg)
 
-O detalhe de uma sessão traz:
+A visão detalhada da sessão apresenta:
 
-- os contadores de eventos, erros e inconsistências, e a divisão **Firebase / DL**;
-- a **cobertura do schema** — todos os eventos esperados para a marca, com cor indicando
-  se dispararam e passaram, dispararam com erro, ou não dispararam nesta sessão;
-- os **parceiros detectados**;
-- a lista de eventos, com os problemas destacados.
+- Contadores de eventos, erros, inconsistências e distribuição **Firebase / DL**;
+- **Cobertura do schema:** matriz completa de eventos esperados para a marca, diferenciando eventos válidos, com erro ou ausentes;
+- **Parceiros detectados**;
+- Lista de eventos com destaque para divergências.
 
-#### 4.3 Validação no App
+### 4.3 Validação de Payloads Mobile
 
 ![Evento inválido com o payload correspondente](img/app-03-validacao-payload.png)
 
-Cada evento inválido mostra o motivo em linguagem direta — no print, `view_item_list`
-disparou com o array `items` vazio, e `error` chegou sem `region` e sem `error_message` —
-seguido do payload que o aparelho realmente emitiu.
+Cada ocorrência inválida exibe a regra violada em linguagem objetiva — como ausência de `items` em `view_item_list` ou falta de parâmetros obrigatórios (`region`, `error_message`) em `error` — acompanhada do payload bruto emitido pelo dispositivo.
 
 ---
 
-### 5. Área de Saúde
+## 5. Área de Saúde
 
-A Saúde responde a uma pergunta diferente da sessão. A sessão pergunta *"o que deu errado
-nesta navegação?"*; a Saúde pergunta *"quanto da especificação esta marca cumpre hoje?"*.
+Enquanto a sessão responde *"o que falhou nesta navegação?"*, a área de **Saúde** responde *"qual é o percentual de conformidade desta marca hoje?"*.
 
-#### 5.1 Como o número sai
+### Cálculo do Indicador
 
-Cada par **evento × região** previsto no schema para aquela marca é um ponto de checagem.
-O score é a proporção de pontos de checagem que dispararam corretamente na **sessão de
-referência** da marca. Eventos que não se aplicam àquela marca ou região são removidos da
-conta, em vez de contarem como falha.
+Cada par **evento × região** previsto no schema para uma marca representa um ponto de checagem. O score reflete a proporção de pontos válidos na **sessão de referência** da marca, desconsiderando eventos não aplicáveis àquela loja ou região.
 
-A sessão de referência é escolhida assim:
+Critério de seleção da sessão de referência:
 
-- **Web** — a sessão marcada com o coração (`❤️`), gravada em `config/health-<marca>.json`;
-- **App** — a sessão mais recente na pasta `Produção`.
+- **Web:** sessão marcada como referência, registrada em `config/health-<marca>.json`;
+- **App:** sessão mais recente da pasta `Produção`.
 
 ![Saúde dos Sites](img/web-03-saude.png)
 
 ![Saúde dos Apps](img/app-05-saude.png)
 
-As duas telas trazem a média geral, a quantidade de marcas monitoradas, o total de eventos
-avaliados do schema e o detalhamento por marca, separando **disparos corretos**,
-**com aviso** (disparou, mas algum parâmetro tem problema) e **ausentes** (não apareceu na
-sessão).
-
-A diferença entre a coluna *Disparos* e a coluna *Parâmetros* é proposital: uma marca pode
-disparar todos os eventos esperados e ainda assim ter parâmetros faltando.
+Os painéis consolidam a média geral, o total de marcas monitoradas, o volume de eventos avaliados e o detalhamento por marca — separando **disparos corretos**, **com aviso** (disparou com falha de parâmetro) e **ausentes**. A distinção entre as colunas *Disparos* e *Parâmetros* evidencia casos em que o evento foi emitido, mas com payload incompleto.
 
 ---
 
-### 6. O schema
+## 6. Especificação (Schemas e Exceções)
 
-O schema é a especificação de referência — o que *deveria* acontecer. É contra ele que toda
-validação roda.
+A validação de sessões e o cálculo de saúde compartilham a mesma fonte de verdade:
 
-- `schema.json` — Web
-- `mobile/coverage-schema.json` — App
+- `schema.json` — especificação Web
+- `mobile/coverage-schema.json` — especificação App
 
-Cada entrada descreve um evento numa região, quais parâmetros são obrigatórios, e em quais
-marcas ele se aplica (`marcas_site` / `marcas_app`). Um evento previsto para oito marcas e
-ausente numa nona simplesmente não é cobrado dela.
+Cada entrada define o evento, a região, os parâmetros obrigatórios e as marcas aplicáveis (`marcas_site` / `marcas_app`). Exceções específicas por marca e região são declaradas em `eventos-opcionais.js`, evitando falsos negativos na cobertura.
 
-Também existe `eventos-opcionais.js`, que marca combinações de evento/região que não se
-aplicam a uma marca específica — a diferença importa: o schema gera lacuna, o arquivo de
-opcionais isenta.
-
-> **Atenção ao alterar o schema:** ele alimenta ao mesmo tempo a validação de sessão e o
-> cálculo de saúde. Mudar um `required` para resolver um número da Saúde muda o veredito de
-> todas as sessões, inclusive as antigas.
+> [!IMPORTANT]
+> Alterações nos schemas impactam simultaneamente a validação de sessões (incluindo histórico) e os indicadores da área de Saúde.
 
 ---
 
-### 7. Estrutura do repositório
+## 7. Estrutura do Repositório
 
-```
-server.js                  API e regras de validação/saúde das duas plataformas
-validator.js               validação de sessão Web contra o schema
-schema.json                especificação de referência — Web
-eventos-opcionais.js       isenções por marca/região
+```text
+server.js                  API, motor de validação e regras de saúde (Web e App)
+validator.js               Validador de sessões Web contra o schema
+schema.json                Especificação de referência — Web
+eventos-opcionais.js       Isenções por marca e região
 
-extensao-v2/               extensão Chrome (captura Web)
-  src/injector.js            patch do dataLayer + captura de GA4 (mundo principal)
-  src/content.js             ponte página ↔ extensão
-  src/background.js          acumula a sessão e envia ao servidor
+extensao-v2/               Extensão Chrome (Manifest V3)
+  src/injector.js            Interceptação de dataLayer e hits GA4 (main world)
+  src/content.js             Ponte página ↔ extensão
+  src/background.js          Acúmulo de sessão e envio ao servidor
 
-mobile/                    Faro App
-  faro-agente.js             agente local (localhost:3001)
-  adb-capture.js             leitura do logcat e parse dos eventos Firebase
-  payload-mapper.js          normalização e validação dos eventos do app
-  session-manager.js         ciclo de vida da sessão
-  coverage-schema.json       especificação de referência — App
-  dashboard.html             interface do Faro App
+mobile/                    Faro App (Android)
+  faro-agente.js             Agente local (localhost:3001)
+  adb-capture.js             Leitura de logcat e parse de eventos Firebase
+  payload-mapper.js          Normalização e validação de payloads mobile
+  session-manager.js         Ciclo de vida das sessões
+  coverage-schema.json       Especificação de referência — App
+  dashboard.html             Interface do Faro App
 
-dashboard/                 interface do Faro Web (React + Vite)
-  src/health/                telas da área de Saúde
+dashboard/                 Interface do Faro Web (React + Vite)
+  src/health/                Componentes da área de Saúde
 ```
 
 ---
 
-### 8. Operação
+## 8. Operação
 
-O Faro roda no **Cloud Run**. O deploy é feito pelo Cloud Shell: build da imagem a partir da
-raiz do repositório, push para o Artifact Registry e `gcloud run deploy`. O tráfego já
-acompanha a revisão mais nova automaticamente.
-
-Duas coisas **não** chegam por deploy, porque rodam na máquina do analista:
-`mobile/faro-agente.js` e `mobile/adb-capture.js`.
+O servidor do Faro é implantado no **Google Cloud Run** (build da imagem a partir da raiz, publicação no Artifact Registry e deploy contínuo). Os componentes locais do analista (`mobile/faro-agente.js` e `mobile/adb-capture.js`) operam diretamente na estação de trabalho para acesso ao ADB.
