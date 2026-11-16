@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, sans-serif; width: 340px; background: #0f0f0f; color: #e0e0e0; padding: 16px; }
+    h2 { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #444; }
+    .dot.active { background: #ef4444; animation: pulse 1s infinite; }
+    .dot.recording { background: #f59e0b; animation: pulse 1s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
+    label { font-size: 11px; color: #888; display: block; margin-bottom: 4px; }
+    input, select { width: 100%; padding: 8px 10px; background: #1a1a1a; border: 1px solid #333; border-radius: 6px; color: #e0e0e0; font-size: 12px; margin-bottom: 10px; outline: none; }
+    input:focus, select:focus { border-color: #555; }
+    .btn { width: 100%; padding: 9px; border: none; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: opacity .15s; margin-bottom: 6px; }
+    .btn:hover { opacity: .85; }
+    .btn-start   { background: #16a34a; color: #fff; }
+    .btn-record  { background: #f59e0b; color: #fff; }
+    .btn-stop    { background: #ef4444; color: #fff; }
+    .btn-save    { background: #2563eb; color: #fff; }
+    .btn-cancel  { background: #333; color: #aaa; }
+    .counter { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 10px 0; }
+    .counter-item { background: #1a1a1a; border-radius: 6px; padding: 8px 10px; text-align: center; }
+    .counter-item .num { font-size: 18px; font-weight: 600; color: #fff; }
+    .counter-item .lbl { font-size: 10px; color: #666; margin-top: 2px; }
+    .status { font-size: 11px; color: #888; margin-top: 10px; text-align: center; min-height: 16px; }
+    .status.ok  { color: #16a34a; }
+    .status.err { color: #ef4444; }
+    .recording-badge { display: flex; align-items: center; gap: 6px; padding: 8px 10px; border-radius: 6px; background: #1a1a1a; border: 1px solid #333; font-size: 12px; margin-bottom: 10px; }
+    .hidden { display: none !important; }
+    .mode-tabs { display: flex; gap: 4px; margin-bottom: 14px; }
+    .mode-tab { flex: 1; padding: 7px; border: 1px solid #333; border-radius: 6px; background: #1a1a1a; color: #888; font-size: 11px; font-weight: 500; cursor: pointer; text-align: center; transition: all .15s; }
+    .mode-tab.active { background: #2563eb; border-color: #2563eb; color: #fff; }
+    .badge { display: inline-block; padding: 2px 7px; border-radius: 10px; font-size: 10px; font-weight: 600; margin-left: 4px; }
+    .badge-green { background: #14532d; color: #86efac; }
+    .badge-yellow { background: #713f12; color: #fde68a; }
+  </style>
+</head>
+<body>
+  <h2><span class="dot" id="dot"></span> Faro</h2>
+
+  <!-- Tabs de modo -->
+  <div id="mode-tabs" class="mode-tabs">
+    <div class="mode-tab active" id="tab-session">📡 Sessão</div>
+    <div class="mode-tab" id="tab-flow">🎬 Gravar Fluxo</div>
+  </div>
+
+  <!-- ══ MODO SESSÃO ══ -->
+  <div id="session-mode">
+    <!-- Setup sessão -->
+    <div id="setup-panel">
+      <label>URL do servidor</label>
+      <input id="serverUrl" type="text" placeholder="https://tracking-tests-xxx.run.app">
+      <label>Token da API</label>
+      <input id="apiToken" type="password" placeholder="fornecido pelo time de Data Tracking" autocomplete="off">
+      <label>Domínio sGTM</label>
+      <input id="sgtmDomain" type="text" placeholder="ex: sgtm.marca-f.exemplo.com.br">
+
+      <button class="btn btn-start" id="btnStart">▶ Iniciar captura</button>
+    </div>
+
+    <!-- Gravando sessão -->
+    <div id="recording-panel" class="hidden">
+      <div class="recording-badge" style="color:#ef4444"><span>⏺</span><span>Capturando — navegue normalmente</span></div>
+      <div id="preview-badge" class="hidden" style="background:#1d4ed8;color:#fff;padding:6px 10px;border-radius:6px;font-size:11px;margin-bottom:8px">🔬 GTM Preview ativo</div>
+      <div class="counter">
+        <div class="counter-item"><div class="num" id="dlCount">0</div><div class="lbl">dataLayer</div></div>
+        <div class="counter-item"><div class="num" id="ga4Count">0</div><div class="lbl">GA4 hits</div></div>
+        <div class="counter-item"><div class="num" id="actionCount">0</div><div class="lbl">ações</div></div>
+      </div>
+      <div class="counter" style="margin-top:-4px">
+        <div class="counter-item" style="grid-column:span 3"><div class="num" id="parceirosCount" style="font-size:14px;color:#7c3aed">0</div><div class="lbl">🤝 parceiros capturados</div></div>
+      </div>
+      <button class="btn btn-stop" id="btnStop">⏹ Parar captura</button>
+      <button class="btn btn-cancel" id="btnCancel">✕ Cancelar</button>
+    </div>
+
+    <!-- Salvar sessão -->
+    <div id="save-panel" class="hidden">
+      <label>Nome do testador</label>
+      <input id="testador" type="text" placeholder="ex: João Silva">
+      <label>Nome da sessão</label>
+      <input id="nomeSessao" type="text" placeholder="ex: home pdp carrinho">
+      <label>Marca</label>
+      <input id="marcaSessao" type="text" placeholder="ex: marca-f">
+      <button class="btn btn-save" id="btnSave">💾 Salvar sessão</button>
+      <button class="btn btn-cancel" id="btnDiscard">✕ Descartar</button>
+    </div>
+  </div>
+
+  <!-- ══ MODO GRAVAR FLUXO ══ -->
+  <div id="flow-mode" class="hidden">
+    <!-- Setup fluxo -->
+    <div id="flow-setup-panel">
+      <label>URL do servidor</label>
+      <input id="flowServerUrl" type="text" placeholder="https://tracking-tests-xxx.run.app">
+      <label>Marca</label>
+      <input id="flowMarca" type="text" placeholder="ex: marca-f">
+      <label>Domínio sGTM</label>
+      <input id="flowSgtmDomain" type="text" placeholder="ex: sgtm.marca-f.exemplo.com.br">
+      <label>URL Preview GTM <span style="color:#888;font-size:10px">(opcional)</span></label>
+
+      <button class="btn btn-record" id="btnStartFlow">🎬 Iniciar gravação</button>
+    </div>
+
+    <!-- Gravando fluxo -->
+    <div id="flow-recording-panel" class="hidden">
+      <div class="recording-badge" style="color:#f59e0b"><span>⏺</span><span>Gravando fluxo — navegue normalmente</span></div>
+      <div class="counter">
+        <div class="counter-item"><div class="num" id="flowActionCount">0</div><div class="lbl">ações</div></div>
+        <div class="counter-item"><div class="num" id="flowDlCount">0</div><div class="lbl">dataLayer</div></div>
+        <div class="counter-item"><div class="num" id="flowGa4Count">0</div><div class="lbl">GA4</div></div>
+      </div>
+      <button class="btn btn-stop" id="btnStopFlow">⏹ Parar gravação</button>
+      <button class="btn btn-cancel" id="btnCancelFlow">✕ Cancelar</button>
+    </div>
+
+    <!-- Salvar fluxo -->
+    <div id="flow-save-panel" class="hidden">
+      <label>Nome do fluxo</label>
+      <input id="flowNome" type="text" placeholder="ex: home-banner-pdp-carrinho">
+      <button class="btn btn-save" id="btnSaveFlow">💾 Salvar fluxo</button>
+      <button class="btn btn-cancel" id="btnDiscardFlow">✕ Descartar</button>
+    </div>
+  </div>
+
+  <div class="status" id="statusMsg"></div>
+
+  <script src="src/popup.js"></script>
+</body>
+</html>

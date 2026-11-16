@@ -1,0 +1,7 @@
+node_modules/
+node_modules - Copia/
+.env
+.env.*
+test-results/
+temp-recording.js
+extensao-v2.zip

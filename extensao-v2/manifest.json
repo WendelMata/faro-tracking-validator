@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "Faro — Data Tracking",
+  "version": "14.8",
+  "description": "Captura dataLayer e GA4 em tempo real para validação — grupo",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "webRequest",
+    "tabs",
+    "webRequestBlocking",
+    "cookies"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://*.facebook.com/*",
+    "https://*.tiktok.com/*",
+    "https://*.pinterest.com/*",
+    "https://*.criteo.com/*",
+    "https://*.rtbhouse.com/*",
+    "https://*.bing.com/*",
+    "https://*.dito.com.br/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/injector.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "tracking-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.3.0",
+    "archiver": "^8.0.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "serve-static": "^1.15.0",
+    "selenium-webdriver": "^4.27.0"
+  }
+}

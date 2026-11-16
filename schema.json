@@ -1,0 +1,6528 @@
+{
+  "version": "4.0",
+  "generated": "2025-07-08",
+  "source": "Notion - Mapa de Tags WEB & APP",
+  "events": [
+    {
+      "event": "purchase",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "seller_cod_name",
+          "required": true
+        },
+        {
+          "name": "coupon",
+          "required": true,
+          "path": "items[].coupon"
+        },
+        {
+          "name": "transaction_id",
+          "required": true
+        },
+        {
+          "name": "total_discount",
+          "required": true
+        },
+        {
+          "name": "subtotal",
+          "required": true
+        },
+        {
+          "name": "shipping",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "payment_type",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_shipping_tier",
+          "required": true,
+          "path": "items[].item_shipping_tier"
+        },
+        {
+          "name": "item_sku",
+          "required": true,
+          "path": "items[].item_sku"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_variant2",
+          "required": true,
+          "path": "items[].item_variant2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "shipping_tier",
+          "required": true
+        },
+        {
+          "name": "item_category4",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "begin_checkout",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "total_discount",
+          "required": true
+        },
+        {
+          "name": "subtotal",
+          "required": true
+        },
+        {
+          "name": "item_shipping_tier",
+          "required": true,
+          "path": "items[].item_shipping_tier"
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "item_variant2",
+          "required": true,
+          "path": "items[].item_variant2"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_sku",
+          "required": true,
+          "path": "items[].item_sku"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "search_zipcode",
+      "regiao": "PDP",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "zipcode",
+          "required": true
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "delivery_time",
+          "required": true,
+          "path": "shippings[].delivery_time"
+        },
+        {
+          "name": "flag_pickup",
+          "required": true
+        },
+        {
+          "name": "shipping_tier",
+          "required": true,
+          "path": "shippings[].shipping_tier"
+        },
+        {
+          "name": "shipping",
+          "required": true,
+          "path": "shippings[].shipping"
+        },
+        {
+          "name": "line_items",
+          "required": true,
+          "path": "shippings[].line_items"
+        },
+        {
+          "name": "shippings",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "error",
+      "regiao": "Todas as Páginas",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-j",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "error_message",
+          "required": true
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "search",
+      "regiao": "Busca",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "search_term",
+          "required": true
+        },
+        {
+          "name": "search_found",
+          "required": true
+        },
+        {
+          "name": "search_quantity",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "view_item",
+      "regiao": "PDP",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "available_grid",
+          "required": true
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "item_url",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_payment_info",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "total_discount",
+          "required": true
+        },
+        {
+          "name": "item_shipping_tier",
+          "required": true,
+          "path": "items[].item_shipping_tier"
+        },
+        {
+          "name": "payment_type",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "pre_filled",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "subtotal",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "item_variant2",
+          "required": true,
+          "path": "items[].item_variant2"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_sku",
+          "required": true,
+          "path": "items[].item_sku"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "view_cart",
+      "regiao": "Mini-cart",
+      "plataforma": "SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "total_discount",
+          "required": true
+        },
+        {
+          "name": "subtotal",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_shipping_tier",
+          "required": true,
+          "path": "items[].item_shipping_tier"
+        },
+        {
+          "name": "item_sku",
+          "required": true,
+          "path": "items[].item_sku"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_variant2",
+          "required": true,
+          "path": "items[].item_variant2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "video_loop_start",
+      "regiao": "PDP",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-c",
+        "marca-j",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "nv",
+        "marca-c",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_shipping_info",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "total_discount",
+          "required": true
+        },
+        {
+          "name": "shipping_tier",
+          "required": true
+        },
+        {
+          "name": "item_shipping_tier",
+          "required": true,
+          "path": "items[].item_shipping_tier"
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "pre_filled",
+          "required": true
+        },
+        {
+          "name": "subtotal",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_sku",
+          "required": true,
+          "path": "items[].item_sku"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_variant2",
+          "required": true,
+          "path": "items[].item_variant2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "shipping",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "generate_lead",
+      "regiao": "Todas as Páginas",
+      "plataforma": "SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [],
+      "parameters": [
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_coupon",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "coupon_message",
+          "required": true
+        },
+        {
+          "name": "seller_cod_name",
+          "required": false
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "coupon",
+          "required": false,
+          "path": "items[].coupon"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "notify_me",
+      "regiao": "PDP",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b",
+        "marca-j"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "item_ref",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "size",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "share",
+      "regiao": "PDP",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-i",
+        "marca-c",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_content",
+      "regiao": "Wishlist",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-c",
+        "marca-j",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-f",
+        "nv",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "content_type",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "view_promotion",
+      "regiao": "PDC",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-f",
+        "nv",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "creative_name",
+          "required": true
+        },
+        {
+          "name": "creative_slot",
+          "required": true
+        },
+        {
+          "name": "promotion_name",
+          "required": true
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "currency",
+          "required": false
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "refine_results",
+      "regiao": "PDC",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "size",
+          "required": false
+        },
+        {
+          "name": "color",
+          "required": false
+        },
+        {
+          "name": "price_range",
+          "required": false
+        },
+        {
+          "name": "ordering",
+          "required": true
+        },
+        {
+          "name": "category",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_to_cart",
+      "regiao": "Wishlist",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_sku",
+          "required": true,
+          "path": "items[].item_sku"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_variant2",
+          "required": true,
+          "path": "items[].item_variant2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "seller_id",
+          "required": true,
+          "path": "items[].seller_id"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_to_wishlist",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-c",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "remove_from_cart",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_shipping_tier",
+          "required": true,
+          "path": "items[].item_shipping_tier"
+        },
+        {
+          "name": "item_sku",
+          "required": true,
+          "path": "items[].item_sku"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_variant2",
+          "required": true,
+          "path": "items[].item_variant2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "item_category4",
+          "required": true
+        },
+        {
+          "name": "seller_id",
+          "required": true,
+          "path": "items[].seller_id"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_item",
+      "regiao": "Wishlist",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "view_item_list",
+      "regiao": "Mini-cart",
+      "plataforma": "SITE",
+      "marcas_site": [
+        "marca-f",
+        "marca-c",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "order_reviewed",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "total_discount",
+          "required": true
+        },
+        {
+          "name": "subtotal",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "payment_type",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "auth_action",
+      "regiao": "Área Logada",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "method",
+          "required": true
+        },
+        {
+          "name": "type",
+          "required": true
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_to_wishlist",
+      "regiao": "Busca",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-f",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_to_wishlist",
+      "regiao": "PDC",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_to_wishlist",
+      "regiao": "Home",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-c",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_to_wishlist",
+      "regiao": "PDP",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_to_cart",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_sku",
+          "required": true,
+          "path": "items[].item_sku"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_variant2",
+          "required": true,
+          "path": "items[].item_variant2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "item_category4",
+          "required": false
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "seller_id",
+          "required": true,
+          "path": "items[].seller_id"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_to_cart",
+      "regiao": "PDC",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "nv",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_sku",
+          "required": true,
+          "path": "items[].item_sku"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_variant2",
+          "required": true,
+          "path": "items[].item_variant2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "seller_id",
+          "required": true,
+          "path": "items[].seller_id"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_to_cart",
+      "regiao": "PDP",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_sku",
+          "required": true,
+          "path": "items[].item_sku"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_variant2",
+          "required": true,
+          "path": "items[].item_variant2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "seller_id",
+          "required": true,
+          "path": "items[].seller_id"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "view_cart",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "total_discount",
+          "required": true
+        },
+        {
+          "name": "subtotal",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_shipping_tier",
+          "required": true,
+          "path": "items[].item_shipping_tier"
+        },
+        {
+          "name": "item_sku",
+          "required": true,
+          "path": "items[].item_sku"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_variant2",
+          "required": true,
+          "path": "items[].item_variant2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "item_category4",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "remove_from_cart",
+      "regiao": "Mini-cart",
+      "plataforma": "SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [],
+      "parameters": [
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_shipping_tier",
+          "required": true,
+          "path": "items[].item_shipping_tier"
+        },
+        {
+          "name": "item_sku",
+          "required": true,
+          "path": "items[].item_sku"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_variant2",
+          "required": true,
+          "path": "items[].item_variant2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "search_zipcode",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "zipcode",
+          "required": true
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "delivery_time",
+          "required": true,
+          "path": "shippings[].delivery_time"
+        },
+        {
+          "name": "flag_pickup",
+          "required": true
+        },
+        {
+          "name": "shipping_tier",
+          "required": true,
+          "path": "shippings[].shipping_tier"
+        },
+        {
+          "name": "shipping",
+          "required": true,
+          "path": "shippings[].shipping"
+        },
+        {
+          "name": "line_items",
+          "required": true,
+          "path": "shippings[].line_items"
+        },
+        {
+          "name": "shippings",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_content",
+      "regiao": "Home",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-i",
+        "marca-c",
+        "marca-j",
+        "marca-g",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "content_type",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_content",
+      "regiao": "PDP",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "content_type",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_content",
+      "regiao": "PDC",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "content_type",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_content",
+      "regiao": "Área Logada",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "content_type",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_content",
+      "regiao": "Footer",
+      "plataforma": "SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [],
+      "parameters": [
+        {
+          "name": "content_type",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_content",
+      "regiao": "Menu",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "content_type",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_content",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "content_type",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "auth_action",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "method",
+          "required": true
+        },
+        {
+          "name": "type",
+          "required": true
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_coupon",
+      "regiao": "Mini-cart",
+      "plataforma": "SITE",
+      "marcas_site": [
+        "marca-f",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [],
+      "parameters": [
+        {
+          "name": "coupon_message",
+          "required": true
+        },
+        {
+          "name": "seller_cod_name",
+          "required": false
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "coupon",
+          "required": false,
+          "path": "items[].coupon"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "view_promotion",
+      "regiao": "Menu",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "creative_name",
+          "required": true
+        },
+        {
+          "name": "creative_slot",
+          "required": true
+        },
+        {
+          "name": "promotion_name",
+          "required": true
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "currency",
+          "required": false
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "view_promotion",
+      "regiao": "Home",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "creative_name",
+          "required": true
+        },
+        {
+          "name": "creative_slot",
+          "required": true
+        },
+        {
+          "name": "promotion_name",
+          "required": true
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "currency",
+          "required": false
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_promotion",
+      "regiao": "Home",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "creative_name",
+          "required": true
+        },
+        {
+          "name": "creative_slot",
+          "required": true
+        },
+        {
+          "name": "promotion_name",
+          "required": true
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "currency",
+          "required": false
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_promotion",
+      "regiao": "PDC",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "nv",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-f",
+        "nv",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "creative_name",
+          "required": true
+        },
+        {
+          "name": "creative_slot",
+          "required": true
+        },
+        {
+          "name": "promotion_name",
+          "required": true
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "currency",
+          "required": false
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_promotion",
+      "regiao": "Menu",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "creative_name",
+          "required": true
+        },
+        {
+          "name": "creative_slot",
+          "required": true
+        },
+        {
+          "name": "promotion_name",
+          "required": true
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "currency",
+          "required": false
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_item",
+      "regiao": "Busca",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_item",
+      "regiao": "PDP",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-f",
+        "nv",
+        "marca-c",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_item",
+      "regiao": "PDC",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_item",
+      "regiao": "Mini-cart",
+      "plataforma": "SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [],
+      "parameters": [
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_item",
+      "regiao": "Home",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "nv",
+        "marca-c",
+        "marca-j",
+        "Marca E",
+        "marca-d",
+        "marca-b",
+        "marca-f"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "refine_results",
+      "regiao": "Busca",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-j",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "size",
+          "required": false
+        },
+        {
+          "name": "color",
+          "required": false
+        },
+        {
+          "name": "price_range",
+          "required": false
+        },
+        {
+          "name": "ordering",
+          "required": true
+        },
+        {
+          "name": "category",
+          "required": false
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "view_item_list",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-c",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "view_item_list",
+      "regiao": "Wishlist",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "view_item_list",
+      "regiao": "Busca",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "view_item_list",
+      "regiao": "PDP",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b",
+        "marca-j"
+      ],
+      "marcas_app": [
+        "marca-f",
+        "nv",
+        "marca-c",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "item_list_id",
+          "required": true,
+          "path": "items[].item_list_id"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "view_item_list",
+      "regiao": "PDC",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "view_item_list",
+      "regiao": "Home",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "nv",
+        "marca-c",
+        "Marca E",
+        "marca-d",
+        "marca-b",
+        "marca-f"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "select_item",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_personal_info",
+      "regiao": "Checkout",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "total_discount",
+          "required": true
+        },
+        {
+          "name": "subtotal",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "pre_filled",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "notify_me",
+      "regiao": "Checkout",
+      "plataforma": "APP",
+      "marcas_site": [],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "item_ref",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "size",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "grid_size",
+      "regiao": "PDC",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-f",
+        "marca-i",
+        "marca-c",
+        "marca-j",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "marca-a",
+        "marca-f",
+        "nv",
+        "marca-h",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "slot_per_line",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_to_cart",
+      "regiao": "Mini-cart",
+      "plataforma": "SITE",
+      "marcas_site": [
+        "marca-f",
+        "marca-i",
+        "marca-c",
+        "marca-j",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [],
+      "parameters": [
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_sku",
+          "required": true,
+          "path": "items[].item_sku"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_variant2",
+          "required": true,
+          "path": "items[].item_variant2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "item_category4",
+          "required": false
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "seller_id",
+          "required": true,
+          "path": "items[].seller_id"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "search_zipcode",
+      "regiao": "Mini-cart",
+      "plataforma": "SITE",
+      "marcas_site": [
+        "marca-f",
+        "nv",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [],
+      "parameters": [
+        {
+          "name": "zipcode",
+          "required": true
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "delivery_time",
+          "required": true,
+          "path": "shippings[].delivery_time"
+        },
+        {
+          "name": "flag_pickup",
+          "required": true
+        },
+        {
+          "name": "shipping_tier",
+          "required": true,
+          "path": "shippings[].shipping_tier"
+        },
+        {
+          "name": "shipping",
+          "required": true,
+          "path": "shippings[].shipping"
+        },
+        {
+          "name": "line_items",
+          "required": true,
+          "path": "shippings[].line_items"
+        },
+        {
+          "name": "shippings",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_to_cart",
+      "regiao": "Busca",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-a",
+        "marca-f",
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [
+        "nv",
+        "marca-h",
+        "marca-j",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_sku",
+          "required": true,
+          "path": "items[].item_sku"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_variant2",
+          "required": true,
+          "path": "items[].item_variant2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "seller_id",
+          "required": true,
+          "path": "items[].seller_id"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_to_cart",
+      "regiao": "Home",
+      "plataforma": "APP, SITE",
+      "marcas_site": [
+        "marca-c",
+        "marca-d",
+        "marca-b",
+        "marca-f"
+      ],
+      "marcas_app": [
+        "nv",
+        "marca-g",
+        "Marca E",
+        "marca-d",
+        "marca-b"
+      ],
+      "parameters": [
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_sku",
+          "required": true,
+          "path": "items[].item_sku"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "item_variant2",
+          "required": true,
+          "path": "items[].item_variant2"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "item_list_name",
+          "required": true,
+          "path": "items[].item_list_name"
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "seller_id",
+          "required": true,
+          "path": "items[].seller_id"
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    },
+    {
+      "event": "add_to_wishlist",
+      "regiao": "Mini-cart",
+      "plataforma": "SITE",
+      "marcas_site": [
+        "marca-i",
+        "marca-c",
+        "marca-h",
+        "marca-j",
+        "marca-d",
+        "marca-b"
+      ],
+      "marcas_app": [],
+      "parameters": [
+        {
+          "name": "value",
+          "required": true
+        },
+        {
+          "name": "currency",
+          "required": true
+        },
+        {
+          "name": "discount",
+          "required": true,
+          "path": "items[].discount"
+        },
+        {
+          "name": "items",
+          "required": true
+        },
+        {
+          "name": "image_url",
+          "required": true,
+          "path": "items[].image_url"
+        },
+        {
+          "name": "item_url",
+          "required": true,
+          "path": "items[].item_url"
+        },
+        {
+          "name": "item_brand",
+          "required": true,
+          "path": "items[].item_brand"
+        },
+        {
+          "name": "item_category",
+          "required": true,
+          "path": "items[].item_category"
+        },
+        {
+          "name": "item_category2",
+          "required": true,
+          "path": "items[].item_category2"
+        },
+        {
+          "name": "item_id",
+          "required": true,
+          "path": "items[].item_id"
+        },
+        {
+          "name": "item_name",
+          "required": true,
+          "path": "items[].item_name"
+        },
+        {
+          "name": "item_ref",
+          "required": true,
+          "path": "items[].item_ref"
+        },
+        {
+          "name": "item_variant",
+          "required": true,
+          "path": "items[].item_variant"
+        },
+        {
+          "name": "price",
+          "required": true,
+          "path": "items[].price"
+        },
+        {
+          "name": "quantity",
+          "required": true,
+          "path": "items[].quantity"
+        },
+        {
+          "name": "index",
+          "required": true,
+          "path": "items[].index"
+        },
+        {
+          "name": "region",
+          "required": true
+        },
+        {
+          "name": "line_items",
+          "required": true
+        },
+        {
+          "name": "str_line_items",
+          "required": true
+        },
+        {
+          "name": "brand",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,610 @@
+{
+  "meta": {
+    "gerado_em": "2026-06-23",
+    "fonte_notion": "collection://22550d2f-083c-8196-8352-000b60cb1695",
+    "fonte_faro": "mobile/mobile-schema.json",
+    "versao_faro": "1.1.0",
+    "plataforma": "APP (Firebase Analytics / Flutter)",
+    "metodologia": "Comparação direta entre parâmetros definidos no Notion Mapa de Tags (grupo) e parâmetros validados no schema Faro App. Priori=YES indica parâmetro de alta prioridade (Priori 1 Checkout 03/07). Nível determinado por Propriedade Pai: items page ID = nível item; demais = nível evento."
+  },
+
+  "eventos_ausentes_no_faro": [
+    {
+      "evento": "remove_from_cart",
+      "regioes_notion": ["Checkout", "Mini-cart"],
+      "plataforma": ["SITE", "APP"],
+      "severidade": "CRITICA",
+      "obs": "Evento com parâmetros definidos no Notion. O Faro (mobile-schema.json v1.1.0) não inclui remove_from_cart entre os eventos monitorados. Não há validação Firebase para remoção de item do carrinho.",
+      "params_notion": {
+        "event_level": {
+          "required": ["currency", "value", "brand"],
+          "optional": ["region", "line_items", "str_line_items"]
+        },
+        "item_level": {
+          "required": ["item_id", "item_name", "item_brand", "item_category", "item_category2", "item_variant", "price", "quantity"],
+          "optional": ["item_variant2", "item_shipping_tier", "item_ref", "item_sku", "item_category4", "discount", "seller_id"]
+        }
+      }
+    },
+    {
+      "evento": "auth_action",
+      "regioes_notion": ["Checkout", "Área Logada"],
+      "plataforma": ["SITE", "APP"],
+      "severidade": "CRITICA",
+      "obs": "Evento de autenticação (login/cadastro/logout). Completamente ausente do Faro. O Notion define 4 parâmetros. Relacionado também ao ID de evento 22550d2f-083c-81df-ab17-fd5d1720d3cb (auth via área logada).",
+      "params_notion": {
+        "event_level": {
+          "required": ["brand"],
+          "optional": ["method", "type", "region"]
+        },
+        "item_level": {}
+      }
+    },
+    {
+      "evento": "add_personal_info",
+      "regioes_notion": ["Checkout"],
+      "plataforma": ["APP"],
+      "severidade": "ALTA",
+      "obs": "Evento referenciado no Notion como etapa do funil de checkout (preenchimento de dados pessoais). Ausente do Faro. Params não totalmente verificados nesta auditoria — requer fetch da página Notion."
+    }
+  ],
+
+  "auditoria_por_evento": {
+    "view_item": {
+      "status": "DIVERGENCIAS",
+      "regiao_faro": "PDP",
+      "params_faro": {
+        "requiredEventParams": ["currency", "value", "items", "brand"],
+        "optionalEventParams": ["available_grid", "region", "item_list_name", "item_name_variation", "image_url", "available", "contents", "installment_value", "installments", "url", "line_items", "str_line_items", "omni_category_name", "item_ref", "item_sku", "item_url"],
+        "requiredItemParams": ["item_id", "item_name", "item_brand", "item_category", "item_category2", "item_variant", "price", "quantity"],
+        "optionalItemParams": ["discount", "item_ref", "item_url", "image_url", "item_sku", "item_name_variation"]
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["currency", "value", "brand"],
+          "optional": ["region", "line_items", "str_line_items", "seller_id", "available_grid"]
+        },
+        "item_level": {
+          "required": ["item_id", "item_name", "item_brand", "item_category", "item_category2", "item_variant", "price", "quantity"],
+          "optional": ["item_ref", "item_sku", "item_variant2", "item_shipping_tier", "discount", "index", "item_list_name", "image_url"]
+        }
+      },
+      "lacunas_faro": [
+        { "param": "item_variant2", "nivel": "item", "priori": "YES", "tipo_notion": "String", "obs": "Ausente dos optionalItemParams do Faro" },
+        { "param": "item_shipping_tier", "nivel": "item", "priori": "YES", "tipo_notion": "String", "obs": "Ausente dos optionalItemParams do Faro" },
+        { "param": "index", "nivel": "item", "priori": "YES", "tipo_notion": "Number", "obs": "Ausente dos optionalItemParams do Faro" }
+      ],
+      "excessos_faro": [
+        { "param": "item_name_variation", "nivel": "event+item", "obs": "Não mapeado no Notion para view_item" },
+        { "param": "available", "nivel": "event", "obs": "Boolean não mapeado no Notion" },
+        { "param": "contents", "nivel": "event", "obs": "String não mapeada no Notion para este evento" },
+        { "param": "installment_value", "nivel": "event", "obs": "Number não mapeado no Notion" },
+        { "param": "installments", "nivel": "event", "obs": "Number não mapeado no Notion" },
+        { "param": "url", "nivel": "event", "obs": "String não mapeada no Notion" },
+        { "param": "omni_category_name", "nivel": "event", "obs": "String não mapeada no Notion" }
+      ],
+      "divergencias_nivel": [
+        { "param": "image_url", "nivel_notion": "item", "nivel_faro": "event+item", "obs": "No Notion image_url é exclusivamente item-level (Prop.Pai=items). No Faro aparece também em optionalEventParams — incorreto." }
+      ]
+    },
+
+    "add_to_cart": {
+      "status": "DIVERGENCIAS",
+      "regiao_faro": "PDP/PDC",
+      "params_faro": {
+        "requiredEventParams": ["currency", "value", "items", "brand"],
+        "optionalEventParams": ["subtotal", "total_discount", "region", "seller_id", "item_name_variation", "image_url", "item_variant2", "contents", "url", "line_items", "str_line_items", "department_name", "item_ref", "item_sku"],
+        "requiredItemParams": ["item_id", "item_name", "item_brand", "item_category", "item_category2", "item_variant", "price", "quantity"],
+        "optionalItemParams": ["discount", "item_sku", "item_ref", "item_variant2", "item_shipping_tier", "item_name_variation", "image_url"]
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["currency", "value", "brand"],
+          "optional": ["region", "line_items", "str_line_items", "seller_id", "subtotal", "total_discount"]
+        },
+        "item_level": {
+          "required": ["item_id", "item_name", "item_brand", "item_category", "item_category2", "item_variant", "price", "quantity"],
+          "optional": ["item_ref", "item_sku", "item_variant2", "item_shipping_tier", "discount", "index", "item_list_name", "image_url"]
+        }
+      },
+      "lacunas_faro": [
+        { "param": "index", "nivel": "item", "priori": "YES", "tipo_notion": "Number", "obs": "Ausente dos optionalItemParams" },
+        { "param": "item_list_name", "nivel": "item", "priori": "YES", "tipo_notion": "String", "obs": "Ausente dos optionalItemParams. No Notion é item-level para add_to_cart." }
+      ],
+      "excessos_faro": [
+        { "param": "item_name_variation", "nivel": "event+item", "obs": "Não mapeado no Notion" },
+        { "param": "contents", "nivel": "event", "obs": "Não mapeado no Notion para este evento" },
+        { "param": "url", "nivel": "event", "obs": "Não mapeado no Notion" },
+        { "param": "department_name", "nivel": "event", "obs": "Não mapeado no Notion" }
+      ],
+      "divergencias_nivel": [
+        { "param": "image_url", "nivel_notion": "item", "nivel_faro": "event+item", "obs": "No Notion é exclusivamente item-level. No Faro aparece também em optionalEventParams." },
+        { "param": "item_variant2", "nivel_notion": "item", "nivel_faro": "event+item", "obs": "No Faro item_variant2 aparece tanto em optionalEventParams quanto em optionalItemParams. No Notion é apenas item-level." }
+      ]
+    },
+
+    "view_item_list": {
+      "status": "DIVERGENCIAS",
+      "regiao_faro": "PDC",
+      "params_faro": {
+        "requiredEventParams": ["items", "brand"],
+        "optionalEventParams": ["item_list_id", "item_list_name", "region", "item_name_variation", "image_url", "line_items", "str_line_items", "category_name", "item_ref"],
+        "requiredItemParams": ["item_id", "item_name", "item_brand", "item_category", "price", "index"],
+        "optionalItemParams": ["item_ref", "item_variant", "image_url", "item_name_variation"]
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["brand"],
+          "optional": ["item_list_name", "region"]
+        },
+        "item_level": {
+          "required": ["item_id", "item_name", "item_brand", "item_category", "item_category2", "item_variant", "price", "quantity", "index"],
+          "optional": ["item_ref", "item_variant2", "item_shipping_tier", "discount", "item_list_name", "image_url"]
+        }
+      },
+      "lacunas_faro": [
+        { "param": "item_category2", "nivel": "item", "priori": "YES", "tipo_notion": "String", "nivel_faro_atual": "ausente de requiredItemParams", "obs": "Required no Notion, ausente no Faro" },
+        { "param": "item_variant", "nivel": "item", "priori": "YES", "tipo_notion": "String", "nivel_faro_atual": "optional", "obs": "Required no Notion (para PDC), optional no Faro — divergência required/optional" },
+        { "param": "quantity", "nivel": "item", "priori": "YES", "tipo_notion": "Number", "nivel_faro_atual": "ausente de requiredItemParams", "obs": "Required no Notion, ausente no Faro" },
+        { "param": "item_variant2", "nivel": "item", "priori": "YES", "tipo_notion": "String", "obs": "Ausente dos optionalItemParams" },
+        { "param": "item_shipping_tier", "nivel": "item", "priori": "YES", "tipo_notion": "String", "obs": "Ausente dos optionalItemParams" },
+        { "param": "discount", "nivel": "item", "priori": "YES", "tipo_notion": "Number", "obs": "Ausente dos optionalItemParams" },
+        { "param": "item_list_name", "nivel": "item", "priori": "YES", "tipo_notion": "String", "obs": "No Notion está tanto em event-level quanto item-level. No Faro apenas event-level." }
+      ],
+      "excessos_faro": [
+        { "param": "item_list_id", "nivel": "event", "obs": "Parâmetro GA4 padrão mas não mapeado no Notion para este evento" },
+        { "param": "item_name_variation", "nivel": "event+item", "obs": "Não mapeado no Notion" },
+        { "param": "category_name", "nivel": "event", "obs": "Não mapeado no Notion" },
+        { "param": "item_ref", "nivel": "event", "obs": "No Notion é exclusivamente item-level para view_item_list" }
+      ]
+    },
+
+    "select_item": {
+      "status": "DIVERGENCIAS",
+      "regiao_faro": "PDC",
+      "params_faro": {
+        "requiredEventParams": ["items", "brand"],
+        "optionalEventParams": ["item_list_id", "item_list_name", "region", "line_items", "str_line_items", "currency"],
+        "requiredItemParams": ["item_id", "item_name", "item_brand", "item_category", "price"],
+        "optionalItemParams": ["item_ref", "item_variant", "index"]
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["brand"],
+          "optional": ["item_list_name", "region"]
+        },
+        "item_level": {
+          "required": ["item_id", "item_name", "item_brand", "item_category", "item_variant", "price"],
+          "optional": ["item_ref", "item_category2", "index", "discount", "quantity", "item_variant2", "item_shipping_tier"]
+        }
+      },
+      "lacunas_faro": [
+        { "param": "item_variant", "nivel": "item", "priori": "YES", "tipo_notion": "String", "nivel_faro_atual": "optional", "obs": "Required no Notion, optional no Faro — divergência required/optional" },
+        { "param": "item_category2", "nivel": "item", "priori": "YES", "tipo_notion": "String", "obs": "Ausente dos optionalItemParams" },
+        { "param": "item_variant2", "nivel": "item", "priori": "YES", "tipo_notion": "String", "obs": "Ausente dos optionalItemParams" },
+        { "param": "item_shipping_tier", "nivel": "item", "priori": "YES", "tipo_notion": "String", "obs": "Ausente dos optionalItemParams" },
+        { "param": "discount", "nivel": "item", "priori": "YES", "tipo_notion": "Number", "obs": "Ausente dos optionalItemParams" },
+        { "param": "quantity", "nivel": "item", "priori": "YES", "tipo_notion": "Number", "obs": "Ausente dos optionalItemParams" }
+      ],
+      "excessos_faro": [
+        { "param": "item_list_id", "nivel": "event", "obs": "GA4 padrão, não mapeado no Notion para este evento" },
+        { "param": "line_items", "nivel": "event", "obs": "Não mapeado no Notion para select_item" },
+        { "param": "str_line_items", "nivel": "event", "obs": "Não mapeado no Notion para select_item" },
+        { "param": "currency", "nivel": "event", "obs": "Não mapeado no Notion para select_item" }
+      ]
+    },
+
+    "begin_checkout": {
+      "status": "DIVERGENCIAS_MENORES",
+      "regiao_faro": "Checkout",
+      "params_faro": {
+        "requiredEventParams": ["currency", "value", "items", "brand", "subtotal"],
+        "optionalEventParams": ["total_discount", "line_items", "str_line_items", "region", "contents", "total_items"],
+        "requiredItemParams": ["item_id", "item_name", "item_brand", "item_category", "item_category2", "item_variant", "price", "quantity"],
+        "optionalItemParams": ["discount", "item_sku", "item_ref", "item_variant2", "item_shipping_tier"]
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["currency", "value", "brand", "subtotal"],
+          "optional": ["region", "total_discount", "line_items", "str_line_items", "pre_filled"]
+        },
+        "item_level": {
+          "required": ["item_id", "item_name", "item_brand", "item_category", "item_category2", "item_variant", "price", "quantity"],
+          "optional": ["item_ref", "item_sku", "item_variant2", "item_shipping_tier", "discount", "seller_id"]
+        }
+      },
+      "lacunas_faro": [
+        { "param": "pre_filled", "nivel": "event", "priori": "YES", "tipo_notion": "Boolean", "obs": "Priori=YES no Notion (indica endereço pré-preenchido do cliente). Ausente dos optionalEventParams do Faro para begin_checkout." },
+        { "param": "seller_id", "nivel": "item", "priori": "NO", "tipo_notion": "String", "obs": "Ausente dos optionalItemParams" }
+      ],
+      "excessos_faro": [
+        { "param": "contents", "nivel": "event", "obs": "Não mapeado no Notion para begin_checkout" },
+        { "param": "total_items", "nivel": "event", "obs": "Não mapeado no Notion" }
+      ]
+    },
+
+    "add_shipping_info": {
+      "status": "ALINHADO",
+      "regiao_faro": "Checkout",
+      "params_faro": {
+        "requiredEventParams": ["currency", "value", "items", "brand", "subtotal", "shipping_tier"],
+        "optionalEventParams": ["shipping", "total_discount", "pre_filled", "line_items", "str_line_items", "region", "contents"],
+        "requiredItemParams": ["item_id", "item_name", "item_brand", "price", "quantity"],
+        "optionalItemParams": ["item_sku", "item_ref", "item_variant2", "item_shipping_tier"]
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["currency", "value", "brand", "subtotal", "shipping_tier"],
+          "optional": ["region", "total_discount", "line_items", "str_line_items", "shipping", "pre_filled"]
+        },
+        "item_level": {
+          "required": ["item_id", "item_name", "item_brand", "price", "quantity"],
+          "optional": ["item_ref", "item_sku", "item_variant2", "item_shipping_tier"]
+        }
+      },
+      "lacunas_faro": [],
+      "excessos_faro": [
+        { "param": "contents", "nivel": "event", "obs": "Não mapeado no Notion para add_shipping_info" }
+      ]
+    },
+
+    "add_payment_info": {
+      "status": "ALINHADO",
+      "regiao_faro": "Checkout",
+      "params_faro": {
+        "requiredEventParams": ["currency", "value", "items", "brand", "subtotal", "payment_type"],
+        "optionalEventParams": ["total_discount", "pre_filled", "line_items", "str_line_items", "region", "contents"],
+        "requiredItemParams": ["item_id", "item_name", "item_brand", "price", "quantity"],
+        "optionalItemParams": ["item_sku", "item_ref", "item_variant2"]
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["currency", "value", "brand", "subtotal", "payment_type"],
+          "optional": ["region", "total_discount", "line_items", "str_line_items", "pre_filled"]
+        },
+        "item_level": {
+          "required": ["item_id", "item_name", "item_brand", "price", "quantity"],
+          "optional": ["item_ref", "item_sku", "item_variant2"]
+        }
+      },
+      "lacunas_faro": [],
+      "excessos_faro": [
+        { "param": "contents", "nivel": "event", "obs": "Não mapeado no Notion para add_payment_info" }
+      ]
+    },
+
+    "purchase": {
+      "status": "DIVERGENCIAS_MENORES",
+      "regiao_faro": "Confirmação",
+      "params_faro": {
+        "requiredEventParams": ["currency", "value", "transaction_id", "items", "brand"],
+        "optionalEventParams": ["subtotal", "total_discount", "shipping", "tax", "coupon", "region", "contents", "str_line_items"],
+        "requiredItemParams": ["item_id", "item_name", "item_brand", "item_category", "price", "quantity"],
+        "optionalItemParams": ["discount", "item_sku", "item_ref", "item_variant2"]
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["currency", "value", "transaction_id", "brand"],
+          "optional": ["region", "subtotal", "total_discount", "shipping", "coupon", "str_line_items", "seller_cod_name"]
+        },
+        "item_level": {
+          "required": ["item_id", "item_name", "item_brand", "item_category", "price", "quantity"],
+          "optional": ["item_ref", "item_sku", "item_variant2", "discount"]
+        }
+      },
+      "lacunas_faro": [
+        { "param": "seller_cod_name", "nivel": "event", "priori": "YES", "tipo_notion": "String", "obs": "Priori=YES no Notion (identificação do vendedor). Ausente dos optionalEventParams do Faro para purchase." }
+      ],
+      "excessos_faro": [
+        { "param": "tax", "nivel": "event", "obs": "GA4 padrão, não mapeado no Notion para este evento" },
+        { "param": "contents", "nivel": "event", "obs": "Não mapeado no Notion para purchase" }
+      ]
+    },
+
+    "view_cart": {
+      "status": "DIVERGENCIAS",
+      "regiao_faro": "Cart",
+      "params_faro": {
+        "requiredEventParams": ["currency", "value", "items", "brand"],
+        "optionalEventParams": ["subtotal", "total_discount", "region", "image_url", "contents", "line_items", "str_line_items"],
+        "requiredItemParams": ["item_id", "item_name", "item_brand", "price", "quantity"],
+        "optionalItemParams": ["item_sku", "item_ref", "item_variant2"]
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["currency", "value", "brand"],
+          "optional": ["region", "subtotal", "total_discount", "line_items", "str_line_items"]
+        },
+        "item_level": {
+          "required": ["item_id", "item_name", "item_brand", "item_category", "item_category2", "item_variant", "price", "quantity"],
+          "optional": ["item_ref", "item_sku", "item_variant2", "item_shipping_tier", "discount", "seller_id"]
+        }
+      },
+      "lacunas_faro": [
+        { "param": "item_category", "nivel": "item", "priori": "YES", "tipo_notion": "String", "nivel_faro_atual": "ausente de requiredItemParams", "obs": "Required no Notion, ausente no requiredItemParams do Faro" },
+        { "param": "item_category2", "nivel": "item", "priori": "YES", "tipo_notion": "String", "nivel_faro_atual": "ausente de requiredItemParams", "obs": "Required no Notion, ausente no Faro" },
+        { "param": "item_variant", "nivel": "item", "priori": "YES", "tipo_notion": "String", "nivel_faro_atual": "ausente de requiredItemParams", "obs": "Required no Notion, ausente no Faro" },
+        { "param": "item_shipping_tier", "nivel": "item", "priori": "YES", "tipo_notion": "String", "obs": "Ausente dos optionalItemParams do Faro" },
+        { "param": "discount", "nivel": "item", "priori": "YES", "tipo_notion": "Number", "obs": "Ausente dos optionalItemParams" },
+        { "param": "seller_id", "nivel": "item", "priori": "NO", "tipo_notion": "String", "obs": "Ausente dos optionalItemParams" }
+      ],
+      "excessos_faro": [
+        { "param": "image_url", "nivel": "event", "obs": "No Notion image_url é item-level. No Faro está incorretamente em optionalEventParams de view_cart." },
+        { "param": "contents", "nivel": "event", "obs": "Não mapeado no Notion para view_cart" }
+      ]
+    },
+
+    "add_to_wishlist": {
+      "status": "DIVERGENCIAS",
+      "regiao_faro": "PDP",
+      "obs_regiao": "No Notion está mapeado para PDC. No Faro está como PDP. Verificar região de disparo real.",
+      "params_faro": {
+        "requiredEventParams": ["currency", "value", "items", "brand"],
+        "optionalEventParams": ["region"],
+        "requiredItemParams": ["item_id", "item_name", "item_brand", "item_category", "price"],
+        "optionalItemParams": ["item_ref", "item_variant"]
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["currency", "value", "brand"],
+          "optional": ["region", "line_items", "str_line_items"]
+        },
+        "item_level": {
+          "required": ["item_id", "item_name", "item_brand", "item_category", "item_category2", "item_variant", "price"],
+          "optional": ["item_ref", "item_variant2", "discount", "quantity", "index", "item_list_name", "item_url", "image_url"]
+        }
+      },
+      "lacunas_faro": [
+        { "param": "line_items", "nivel": "event", "priori": "YES", "tipo_notion": "String", "obs": "Priori=YES no Notion. Ausente dos optionalEventParams do Faro." },
+        { "param": "str_line_items", "nivel": "event", "priori": "YES", "tipo_notion": "String", "obs": "Priori=YES no Notion. Ausente dos optionalEventParams do Faro." },
+        { "param": "item_category2", "nivel": "item", "priori": "YES", "tipo_notion": "String", "nivel_faro_atual": "ausente de requiredItemParams", "obs": "Required no Notion, completamente ausente no Faro para add_to_wishlist." },
+        { "param": "item_variant", "nivel": "item", "priori": "YES", "tipo_notion": "String", "nivel_faro_atual": "optional", "obs": "Required no Notion, apenas optional no Faro — divergência required/optional." },
+        { "param": "item_variant2", "nivel": "item", "priori": "YES", "tipo_notion": "String", "obs": "Ausente dos optionalItemParams do Faro." },
+        { "param": "discount", "nivel": "item", "priori": "YES", "tipo_notion": "Number", "obs": "Ausente dos optionalItemParams." },
+        { "param": "quantity", "nivel": "item", "priori": "YES", "tipo_notion": "Number", "obs": "Ausente dos requiredItemParams do Faro. Notion o considera obrigatório." },
+        { "param": "index", "nivel": "item", "priori": "YES", "tipo_notion": "Number", "obs": "Ausente dos optionalItemParams." },
+        { "param": "item_url", "nivel": "item", "priori": "NO", "tipo_notion": "String", "obs": "Parâmetro APP-only no Notion. Ausente do Faro." }
+      ],
+      "excessos_faro": []
+    },
+
+    "add_coupon": {
+      "status": "DIVERGENCIAS",
+      "regiao_faro": "Checkout",
+      "params_faro": {
+        "requiredEventParams": ["brand", "coupon"],
+        "optionalEventParams": ["value", "currency", "region"],
+        "requiredItemParams": [],
+        "optionalItemParams": []
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["brand", "coupon"],
+          "optional": ["region", "coupon_message", "seller_cod_name"]
+        },
+        "item_level": {}
+      },
+      "lacunas_faro": [
+        { "param": "coupon_message", "nivel": "event", "priori": "YES", "tipo_notion": "String", "obs": "Priori=YES no Notion (mensagem de retorno ao aplicar cupom). Completamente ausente do Faro." },
+        { "param": "seller_cod_name", "nivel": "event", "priori": "YES", "tipo_notion": "String", "obs": "Priori=YES no Notion (identificação do vendedor). Completamente ausente do Faro." }
+      ],
+      "excessos_faro": [
+        { "param": "value", "nivel": "event", "obs": "Não mapeado no Notion para add_coupon" },
+        { "param": "currency", "nivel": "event", "obs": "Não mapeado no Notion para add_coupon" }
+      ]
+    },
+
+    "search": {
+      "status": "DIVERGENCIAS_MENORES",
+      "regiao_faro": "Busca",
+      "params_faro": {
+        "requiredEventParams": ["brand", "search_term"],
+        "optionalEventParams": ["number_of_results", "region"],
+        "requiredItemParams": [],
+        "optionalItemParams": []
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["brand", "search_term"],
+          "optional": ["region", "search_found", "search_quantity"]
+        },
+        "item_level": {}
+      },
+      "lacunas_faro": [
+        { "param": "search_found", "nivel": "event", "priori": "NO", "tipo_notion": "Boolean", "obs": "Boolean indicando se a busca retornou resultados. Ausente do Faro." }
+      ],
+      "excessos_faro": [],
+      "divergencias_nomenclatura": [
+        { "param_faro": "number_of_results", "param_notion": "search_quantity", "tipo": "Number", "obs": "Parâmetros equivalentes com nomes distintos. Faro usa 'number_of_results', Notion usa 'search_quantity'. Requer alinhamento de nomenclatura." }
+      ]
+    },
+
+    "search_zipcode": {
+      "status": "SCHEMA_INCOMPLETO",
+      "regiao_faro": "Checkout",
+      "obs": "Schema do Faro para search_zipcode é um placeholder sem validação real. O Notion define estrutura complexa com CEP, flag de retirada e array de opções de frete.",
+      "params_faro": {
+        "requiredEventParams": ["brand"],
+        "optionalEventParams": ["region"],
+        "requiredItemParams": [],
+        "optionalItemParams": []
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["brand", "zipcode"],
+          "optional": ["region", "flag_pickup", "shippings"]
+        },
+        "shippings_sub_params": {
+          "descricao": "Array de objetos de frete, cada item contendo:",
+          "campos": ["shipping_tier (String)", "shipping (Number)", "delivery_time (Number)", "line_items (String)"]
+        }
+      },
+      "lacunas_faro": [
+        { "param": "zipcode", "nivel": "event", "priori": "YES", "tipo_notion": "String", "obs": "CEP consultado — parâmetro principal do evento. Ausente do Faro." },
+        { "param": "flag_pickup", "nivel": "event", "priori": "NO", "tipo_notion": "Boolean", "obs": "Indica disponibilidade de retirada em loja. Ausente do Faro." },
+        { "param": "shippings", "nivel": "event", "priori": "YES", "tipo_notion": "Array", "obs": "Array de opções de frete. Estrutura complexa não representável diretamente em Firebase flat params. Decisão de modelagem necessária." }
+      ],
+      "excessos_faro": []
+    },
+
+    "view_promotion": {
+      "status": "DIVERGENCIAS_MENORES",
+      "regiao_faro": "Home",
+      "params_faro": {
+        "requiredEventParams": ["brand"],
+        "optionalEventParams": ["promotion_id", "promotion_name", "creative_name", "creative_slot", "location_id", "region"],
+        "requiredItemParams": [],
+        "optionalItemParams": []
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["brand"],
+          "optional": ["region", "creative_name", "creative_slot", "promotion_name", "currency"]
+        },
+        "item_level": {
+          "required": [],
+          "optional": ["item_id", "item_name", "item_brand", "item_category", "item_category2", "item_variant", "item_ref", "price", "discount", "quantity"]
+        }
+      },
+      "lacunas_faro": [
+        { "param": "currency", "nivel": "event", "priori": "NO", "tipo_notion": "String", "obs": "Presente quando items são incluídos. Ausente do Faro." },
+        { "param": "items (array completo)", "nivel": "item", "priori": "NO", "obs": "O Notion define items[] opcionais para view_promotion (banners com produtos). O Faro não define nenhum item param para este evento." }
+      ],
+      "excessos_faro": [
+        { "param": "promotion_id", "nivel": "event", "obs": "GA4 padrão, não mapeado no Notion para este evento" },
+        { "param": "location_id", "nivel": "event", "obs": "GA4 padrão, não mapeado no Notion para este evento" }
+      ]
+    },
+
+    "select_promotion": {
+      "status": "ALINHADO",
+      "regiao_faro": "Home",
+      "params_faro": {
+        "requiredEventParams": ["brand"],
+        "optionalEventParams": ["promotion_id", "promotion_name", "creative_name", "creative_slot", "location_id", "region"],
+        "requiredItemParams": [],
+        "optionalItemParams": []
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["brand"],
+          "optional": ["region", "creative_name", "creative_slot", "promotion_name", "currency"]
+        },
+        "item_level": {}
+      },
+      "lacunas_faro": [],
+      "excessos_faro": [
+        { "param": "promotion_id", "nivel": "event", "obs": "GA4 padrão, não mapeado no Notion" },
+        { "param": "location_id", "nivel": "event", "obs": "GA4 padrão, não mapeado no Notion" }
+      ]
+    },
+
+    "select_content": {
+      "status": "ALINHADO",
+      "regiao_faro": "Global",
+      "params_faro": {
+        "requiredEventParams": ["brand", "content_type"],
+        "optionalEventParams": ["item_id", "region"],
+        "requiredItemParams": [],
+        "optionalItemParams": []
+      },
+      "params_notion": {
+        "event_level": {
+          "required": ["brand", "content_type"],
+          "optional": ["region"]
+        },
+        "item_level": {}
+      },
+      "lacunas_faro": [],
+      "excessos_faro": [
+        { "param": "item_id", "nivel": "event", "obs": "Não mapeado no Notion para select_content" }
+      ]
+    },
+
+    "notify_me": {
+      "status": "PENDENTE_VERIFICACAO",
+      "regiao_faro": "PDP",
+      "params_faro": {
+        "requiredEventParams": ["brand"],
+        "optionalEventParams": ["item_id", "item_name", "region"],
+        "requiredItemParams": [],
+        "optionalItemParams": []
+      },
+      "obs": "Parâmetros Notion não totalmente verificados nesta auditoria. Arquivo oversized recuperado pode conter auth_action e não notify_me. Requer confirmação do ID de página Notion e fetch direto.",
+      "lacunas_faro": [],
+      "excessos_faro": []
+    },
+
+    "add_to_wishlist_mini_cart": {
+      "status": "COBERTURA_AUSENTE",
+      "obs": "O Notion define view_item_list também para Mini-cart com parâmetros distintos. O Faro cobre apenas PDC. Região Mini-cart sem validação no Faro.",
+      "regiao_ausente": "Mini-cart",
+      "params_notion_mini_cart": {
+        "event_level": {
+          "optional": ["item_list_name", "region", "brand"]
+        },
+        "item_level": {
+          "optional": ["item_id", "item_name", "item_brand", "item_category", "item_category2", "item_variant", "item_ref", "item_list_name", "price", "discount", "quantity", "index", "item_url"]
+        }
+      }
+    }
+  },
+
+  "resumo_executivo": {
+    "total_eventos_faro": 23,
+    "total_eventos_notion_app_confirmados": 18,
+    "eventos_criticos_ausentes_no_faro": [
+      "remove_from_cart (Checkout + Mini-cart — funil de compra sem validação de remoção)",
+      "auth_action (login/cadastro — evento de autenticação sem cobertura)",
+      "add_personal_info (etapa checkout — pendente verificação)"
+    ],
+    "eventos_com_schema_critico_incompleto": [
+      "search_zipcode — parâmetros principais ausentes (zipcode, flag_pickup, shippings)",
+      "add_to_wishlist — 9 params Priori=YES ausentes, schema significativamente mais enxuto que o Notion",
+      "add_coupon — coupon_message e seller_cod_name Priori=YES ausentes",
+      "view_cart — item_category, item_category2 e item_variant ausentes do requiredItemParams",
+      "view_item_list — item_category2, quantity ausentes do requiredItemParams"
+    ],
+    "eventos_bem_alinhados": [
+      "add_shipping_info",
+      "add_payment_info",
+      "select_content",
+      "select_promotion"
+    ],
+    "params_priori_yes_ausentes_recorrentes": {
+      "item_variant2": ["view_item", "view_item_list", "select_item", "add_to_wishlist"],
+      "item_shipping_tier": ["view_item", "view_item_list", "select_item", "view_cart"],
+      "item_category2": ["view_item_list", "select_item", "view_cart", "add_to_wishlist"],
+      "quantity": ["view_item_list", "add_to_wishlist"],
+      "index": ["view_item", "add_to_cart", "add_to_wishlist"],
+      "seller_cod_name": ["purchase", "add_coupon"],
+      "pre_filled": ["begin_checkout"]
+    },
+    "params_faro_sem_base_notion": [
+      "contents (view_item, add_to_cart, begin_checkout, add_shipping_info, add_payment_info, purchase, view_cart)",
+      "item_list_id (view_item_list, select_item, listing_page_view)",
+      "tax (purchase)",
+      "total_items (begin_checkout)",
+      "department_name (add_to_cart)",
+      "category_name (view_item_list)",
+      "omni_category_name (view_item)",
+      "item_name_variation (view_item, add_to_cart, view_item_list)",
+      "url (view_item, add_to_cart)",
+      "installment_value, installments (view_item)",
+      "available (view_item)",
+      "promotion_id, location_id (view_promotion, select_promotion)"
+    ],
+    "divergencias_nomenclatura": [
+      "number_of_results (Faro) != search_quantity (Notion) — mesmo parâmetro com nomes distintos"
+    ],
+    "acoes_recomendadas": [
+      "1. CRITICO: Implementar remove_from_cart e auth_action no mobile-schema.json",
+      "2. CRITICO: Expandir search_zipcode com zipcode (required), flag_pickup e modelagem para shippings array",
+      "3. ALTA: Corrigir add_to_wishlist adicionando item_category2, quantity, index, item_variant2, line_items, str_line_items",
+      "4. ALTA: Adicionar coupon_message e seller_cod_name ao add_coupon",
+      "5. ALTA: Corrigir requiredItemParams de view_cart (incluir item_category, item_category2, item_variant)",
+      "6. MEDIA: Alinhar nomenclatura number_of_results -> search_quantity com o Notion",
+      "7. MEDIA: Auditar params exclusivos do Faro sem base no Notion (contents, item_list_id, etc.) para confirmar origem"
+    ]
+  }
+}

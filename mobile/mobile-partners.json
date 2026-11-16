@@ -1,0 +1,72 @@
+{
+  "brands": {
+    "marca-a":    "br.com.exemplo.marca_a",
+    "nv":         "br.com.exemplo.marca_b",
+    "farm":       "br.com.exemplo.marca_f",
+    "marca-f":    "br.com.exemplo.marca_f",
+    "marca-i": "com.exemplo.marca_i",
+    "marca-c": "br.com.exemplo.marca_c",
+    "marca-h":  "br.com.exemplo.marca_h",
+    "marca-j":    "com.exemplo.marca_j"
+  },
+  "sdkComponents": {
+    "Appsflyer": ["com.appsflyer"],
+    "Adjust":    ["io.adjust", "com.adjust.sdk"],
+    "Meta":      ["com.facebook", "com.instagram.android"],
+    "Insider":   ["useinsider", "com.useinsider"],
+    "Criteo":    ["com.criteo"],
+    "TikTok":    ["com.tiktok", "com.bytedance"],
+    "Omnichat":  ["omnichat", "agentshop"]
+  },
+  "parceiros": [
+    {
+      "nome": "Adjust",
+      "categoria": "MMP",
+      "logcat_tags": ["Adjust", "io.adjust"],
+      "logcat_keywords": ["adjust.com"],
+      "dominios": ["app.adjust.com", "s2s.adjust.com", "adjust.com"]
+    },
+    {
+      "nome": "Appsflyer",
+      "categoria": "MMP",
+      "logcat_tags": ["AppsFlyer", "AppsFlyer_"],
+      "logcat_keywords": ["appsflyer.com"],
+      "dominios": ["t.appsflyer.com", "appsflyer.com"]
+    },
+    {
+      "nome": "Meta",
+      "categoria": "Pixel",
+      "logcat_tags": ["FacebookAnalytics", "FBAdSDK", "com.facebook.ads"],
+      "logcat_keywords": ["graph.facebook.com"],
+      "dominios": ["graph.facebook.com", "www.facebook.com"]
+    },
+    {
+      "nome": "Insider",
+      "categoria": "CRM",
+      "logcat_tags": ["Insider", "useinsider"],
+      "logcat_keywords": ["useinsider.com", "ingage.io"],
+      "dominios": ["useinsider.com", "ingage.io"]
+    },
+    {
+      "nome": "Criteo",
+      "categoria": "Retargeting",
+      "logcat_tags": ["Criteo", "CriteoSDK"],
+      "logcat_keywords": ["criteo.com", "criteo.net"],
+      "dominios": ["static.criteo.net", "graph.criteo.com"]
+    },
+    {
+      "nome": "TikTok",
+      "categoria": "Pixel",
+      "logcat_tags": ["TikTokBusinessSDK", "TikTokSdk", "TikTok"],
+      "logcat_keywords": ["analytics.tiktok.com", "business-api.tiktok.com"],
+      "dominios": ["analytics.tiktok.com", "business-api.tiktok.com"]
+    },
+    {
+      "nome": "Omnichat",
+      "categoria": "Chat",
+      "logcat_tags": ["Omnichat", "AgentShop"],
+      "logcat_keywords": ["omnichat.com", "agentshop"],
+      "dominios": ["omnichat.com", "agentshop.io"]
+    }
+  ]
+}
