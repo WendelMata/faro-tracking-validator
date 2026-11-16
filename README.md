@@ -1,7 +1,42 @@
-# Faro — Server-Side Data Quality & Tracking Validation Framework
+<!-- ====== HERO ====== -->
+<div align="center">
+  <h1>FARO</h1>
+  <h3>Server-Side Data Quality &amp; Tracking Validation Framework</h3>
+  <p><i>Auditoria em tempo real de eventos Web (dataLayer / GA4) e Mobile (Firebase / ADB) orientada a Schema Enforcement.</i></p>
+
+  <p>
+    <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"/>
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React"/>
+    <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite"/>
+    <img src="https://img.shields.io/badge/Google%20Cloud%20Run-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Google Cloud Run"/>
+    <img src="https://img.shields.io/badge/Google%20Analytics%204-E37400?style=for-the-badge&logo=googleanalytics&logoColor=white" alt="GA4"/>
+    <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase"/>
+    <img src="https://img.shields.io/badge/Chrome%20MV3-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Chrome Extension MV3"/>
+    <img src="https://img.shields.io/badge/Android%20ADB-3DDC84?style=for-the-badge&logo=android&logoColor=black" alt="Android ADB"/>
+  </p>
+</div>
+
+<br>
+
+<!-- ====== STACK CARD ====== -->
+<div align="center" style="background-color:#0d1117; padding:20px; border-radius:12px; border:1px solid rgba(255,255,255,0.1);">
+  <h3>Stack &amp; Arquitetura do Projeto</h3>
+  <p align="center">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" width="52" height="52"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" width="52" height="52"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" alt="Vite" width="52" height="52"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" width="52" height="52"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" width="52" height="52"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android" width="52" height="52"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" alt="Chrome" width="52" height="52"/>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" width="52" height="52"/>
+  </p>
+</div>
+
+<br>
 
 > [!NOTE]
-> **Confidencialidade:** Este repositório apresenta a arquitetura, o código-fonte sanitizado e a documentação técnica de um framework corporativo de Data Quality. Dados sensíveis, regras de negócio proprietárias e credenciais foram omitidos em conformidade com NDAs. Todas as capturas de tela foram anonimizadas (`marca-a` a `marca-j`, identificadores e URLs genéricos).
+> **Nota de Confidencialidade:** Este repositório apresenta a arquitetura, o código-fonte sanitizado e a documentação técnica de um framework corporativo de Data Quality. Dados sensíveis, regras de negócio proprietárias e credenciais foram omitidos em conformidade com NDAs. Todas as capturas de tela foram anonimizadas (`marca-a` a `marca-j`, identificadores e URLs genéricos).
 
 ---
 
@@ -22,7 +57,7 @@ O desenvolvimento do projeto combinou engenharia tradicional com fluxos de **AI-
 
 ---
 
-## Arquitetura Geral
+## Visão Geral das Plataformas
 
 O Faro cobre duas plataformas com pipelines distintos que convergem para um modelo único de sessão e validação:
 
@@ -39,7 +74,9 @@ O Faro cobre duas plataformas com pipelines distintos que convergem para um mode
 
 Ao acessar a aplicação, o usuário seleciona a plataforma de validação (**Web** ou **App**). Ambas compartilham o mesmo servidor, armazenamento de sessões e motor de saúde, mas operam com telas e fluxos dedicados.
 
-![Tela inicial do Faro com a escolha entre Web e App](img/00-home-plataforma.jpg)
+<p align="center">
+  <img src="img/00-home-plataforma.jpg" alt="Tela inicial do Faro com a escolha entre Web e App" width="90%"/>
+</p>
 
 Após a seleção da plataforma, escolhe-se a marca ativa. Toda a navegação subsequente ocorre dentro desse contexto.
 
@@ -74,7 +111,9 @@ Ao encerrar a gravação, a extensão envia a sessão para `POST /api/save-sessi
 
 ### 3.2 Dashboard Web
 
-![Dashboard do Faro Web](img/web-01-dashboard.png)
+<p align="center">
+  <img src="img/web-01-dashboard.png" alt="Dashboard do Faro Web" width="95%"/>
+</p>
 
 A navegação lateral organiza os módulos da plataforma:
 
@@ -93,7 +132,9 @@ Cada sessão é exibida em três visões complementares:
 - **Detalhamento:** auditoria evento a evento;
 - **Parceiros:** pixels de terceiros detectados durante a navegação.
 
-![Detalhamento de uma sessão: validação parâmetro a parâmetro e payload](img/web-02-detalhamento.png)
+<p align="center">
+  <img src="img/web-02-detalhamento.png" alt="Detalhamento de uma sessão: validação parâmetro a parâmetro e payload" width="95%"/>
+</p>
 
 O Detalhamento apresenta a validação parâmetro a parâmetro e o payload integral de cada evento capturado, aplicando regras condicionais específicas por plataforma.
 
@@ -111,17 +152,23 @@ No ambiente Mobile, a captura é composta por três camadas:
 
 Essa arquitetura desacopla o servidor em Cloud Run da conexão física USB do analista, permitindo iniciar e encerrar capturas diretamente pelo navegador.
 
-![Painel de Captura ADB](img/app-04-captura-adb.png)
+<p align="center">
+  <img src="img/app-04-captura-adb.png" alt="Painel de Captura ADB" width="95%"/>
+</p>
 
 O painel exibe o status do agente local, lista dispositivos conectados e oferece conexão por IP ou conversão de USB para Wi-Fi.
 
 ### 4.2 Dashboard do App
 
-![Seleção de marca no Faro App](img/app-01-selecao-marca.jpg)
+<p align="center">
+  <img src="img/app-01-selecao-marca.jpg" alt="Seleção de marca no Faro App" width="90%"/>
+</p>
 
 As sessões ficam listadas à esquerda, organizadas por ambiente/pasta (Homologação, Produção, etc.) com filtros por status. Capturas em andamento exibem o estado **Ao vivo**, recebendo eventos em tempo real via **Server-Sent Events (SSE)**.
 
-![Detalhe de uma sessão de App](img/app-02-sessao-detalhe.jpg)
+<p align="center">
+  <img src="img/app-02-sessao-detalhe.jpg" alt="Detalhe de uma sessão de App" width="95%"/>
+</p>
 
 A visão detalhada da sessão apresenta:
 
@@ -132,7 +179,9 @@ A visão detalhada da sessão apresenta:
 
 ### 4.3 Validação de Payloads Mobile
 
-![Evento inválido com o payload correspondente](img/app-03-validacao-payload.png)
+<p align="center">
+  <img src="img/app-03-validacao-payload.png" alt="Evento inválido com o payload correspondente" width="95%"/>
+</p>
 
 Cada ocorrência inválida exibe a regra violada em linguagem objetiva — como ausência de `items` em `view_item_list` ou falta de parâmetros obrigatórios (`region`, `error_message`) em `error` — acompanhada do payload bruto emitido pelo dispositivo.
 
@@ -151,9 +200,13 @@ Critério de seleção da sessão de referência:
 - **Web:** sessão marcada como referência, registrada em `config/health-<marca>.json`;
 - **App:** sessão mais recente da pasta `Produção`.
 
-![Saúde dos Sites](img/web-03-saude.png)
+<p align="center">
+  <img src="img/web-03-saude.png" alt="Saúde dos Sites" width="95%"/>
+</p>
 
-![Saúde dos Apps](img/app-05-saude.png)
+<p align="center">
+  <img src="img/app-05-saude.png" alt="Saúde dos Apps" width="95%"/>
+</p>
 
 Os painéis consolidam a média geral, o total de marcas monitoradas, o volume de eventos avaliados e o detalhamento por marca — separando **disparos corretos**, **com aviso** (disparou com falha de parâmetro) e **ausentes**. A distinção entre as colunas *Disparos* e *Parâmetros* evidencia casos em que o evento foi emitido, mas com payload incompleto.
 
@@ -203,3 +256,13 @@ dashboard/                 Interface do Faro Web (React + Vite)
 ## 8. Operação
 
 O servidor do Faro é implantado no **Google Cloud Run** (build da imagem a partir da raiz, publicação no Artifact Registry e deploy contínuo). Os componentes locais do analista (`mobile/faro-agente.js` e `mobile/adb-capture.js`) operam diretamente na estação de trabalho para acesso ao ADB.
+
+---
+
+## Autor
+
+<p align="center">
+  <a href="mailto:wendelrfm@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/></a>
+  <a href="https://www.linkedin.com/in/wendel-mata-b31633206/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+  <a href="https://github.com/WendelMata"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
+</p>
